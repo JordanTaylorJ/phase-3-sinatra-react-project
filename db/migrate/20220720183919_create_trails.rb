@@ -6,7 +6,6 @@ class CreateTrails < ActiveRecord::Migration[6.1]
       t.integer :length
       t.integer :elevation_gain
       t.string :difficulty
-      t.text :description
       t.timestamps
     end
   end

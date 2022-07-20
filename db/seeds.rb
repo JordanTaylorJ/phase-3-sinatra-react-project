@@ -32,7 +32,7 @@ puts "✅ Done seeding!"
 #t.integer :length
 #t.integer :elevation_gain
 #t.string :difficulty
-#t.#text :description
+#t.#text :description  REMOVE 
 #t.timestamps
 
 #t.string :title
