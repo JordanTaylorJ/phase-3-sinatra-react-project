@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_20_184938) do
+ActiveRecord::Schema.define(version: 2022_07_20_184513) do
 
   create_table "hikers", force: :cascade do |t|
     t.string "name"
+    t.integer "time"
+    t.string "trail_id"
+    t.boolean "unsupported"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -21,18 +24,8 @@ ActiveRecord::Schema.define(version: 2022_07_20_184938) do
   create_table "trails", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.integer "length"
+    t.integer "distance"
     t.integer "elevation_gain"
-    t.string "difficulty"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "updates", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "hiker_id"
-    t.integer "trail_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
