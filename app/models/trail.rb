@@ -1,3 +1,3 @@
 class Trail < ActiveRecord::Base
-    has_many :hikers
+    has_many :athletes
 end

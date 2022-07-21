@@ -1,6 +1,6 @@
-class CreateHikers < ActiveRecord::Migration[6.1]
+class CreateAthletes < ActiveRecord::Migration[6.1]
   def change
-    create_table :hikers do |t|
+    create_table :athletes do |t|
       t.string :name
       t.integer :time
       t.string :trail_id

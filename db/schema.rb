@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_07_20_184513) do
 
-  create_table "hikers", force: :cascade do |t|
+  create_table "athletes", force: :cascade do |t|
     t.string "name"
     t.integer "time"
     t.string "trail_id"
