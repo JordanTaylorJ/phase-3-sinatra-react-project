@@ -7,9 +7,14 @@ class ApplicationController < Sinatra::Base
     trails.to_json
   end
 
-  get "/hikers" do 
+  get '/hikers' do 
     hikers = Hiker.all.order(:time)
     hikers.to_json
+  end
+
+  get "/hikers/:id" do 
+    hiker = Hiker.find(params[:id])
+    hiker.to_json
   end
 
 end
