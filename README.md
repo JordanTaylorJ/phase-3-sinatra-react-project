@@ -1,5 +1,9 @@
 # Phase 3 Project Guidelines
 
+### Frontend Repo 
+- [Frontend Repository](https://github.com/JordanTaylorJ/phase-3-frontend)
+
+
 ## Learning Goals
 
 - Build a web basic API with Sinatra and Active Record to support a React
