@@ -1,18 +1,24 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
+  # All Trails
   get "/trails" do
     trails = Trail.all.order(:name)
     trails.to_json
   end
 
-
-  ## All Athletes
+  # All Athletes
   get '/athletes' do 
     athletes = Athlete.all.order(:time)
     athletes.to_json
   end
+
+  #Athletes belonging to a specific trail
+  get '/trails/:id' do 
+    trails = trails.find(params[:id])
+    trails.to_json(include: :athletes)
+  end
+
 
   #Athletes by id
   get "/athletes/:id" do 
