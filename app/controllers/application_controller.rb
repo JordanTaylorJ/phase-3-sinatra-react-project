@@ -1,36 +1,40 @@
+require 'pry'
+
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # All Trails
   get "/trails" do
     trails = Trail.all.order(:name)
-    trails.to_json
+    trails.to_json(include: :athletes)
   end
 
   # All Athletes
-  get '/athletes' do 
-    athletes = Athlete.all.order(:time)
-    athletes.to_json
-  end
+  # get '/athletes' do 
+  #   athletes = Athlete.all.order(:time)
+  #   athletes.to_json
+  # end
 
   #Athletes belonging to a specific trail
-  get '/trails/:id' do 
-    trail = Trail.find(params[:id])
-    trail.to_json(include: :athletes)
-  end
+  #get '/trails/:id' do 
+  #  trail = Trail.find(params[:id])
+  #  trail.to_json(include: :athletes)
+  #end
 
 
   #Athletes by id
-  get "/athletes/:id" do 
-    athlete = Athlete.find(params[:id])
-    athlete.to_json
-  end
+  #get "/athletes/:id" do 
+  #  athlete = Athlete.find(params[:id])
+  #  athlete.to_json
+  #end
 
   ## Add new Athlete 
   post '/athletes' do 
-    athlete = Athlete.create(
+    trail = Trail.find_by(id: params[:trail_id])
+    athlete = trail.athletes.create(
       name: params[:name],
-      time: params[:time]
+      time: params[:time],
+      unsupported: params[:unsupported]
     )
     athlete.to_json
   end
