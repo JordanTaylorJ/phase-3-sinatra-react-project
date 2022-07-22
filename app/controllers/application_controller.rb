@@ -15,8 +15,8 @@ class ApplicationController < Sinatra::Base
 
   #Athletes belonging to a specific trail
   get '/trails/:id' do 
-    trails = trails.find(params[:id])
-    trails.to_json(include: :athletes)
+    trail = Trail.find(params[:id])
+    trail.to_json(include: :athletes)
   end
 
 
