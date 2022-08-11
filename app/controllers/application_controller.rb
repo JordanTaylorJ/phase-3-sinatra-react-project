@@ -9,25 +9,6 @@ class ApplicationController < Sinatra::Base
     trails.to_json(include: :athletes)
   end
 
-  # All Athletes
-  # get '/athletes' do 
-  #   athletes = Athlete.all.order(:time)
-  #   athletes.to_json
-  # end
-
-  #Athletes belonging to a specific trail
-  #get '/trails/:id' do 
-  #  trail = Trail.find(params[:id])
-  #  trail.to_json(include: :athletes)
-  #end
-
-
-  #Athletes by id
-  #get "/athletes/:id" do 
-  #  athlete = Athlete.find(params[:id])
-  #  athlete.to_json
-  #end
-
   ## Add new Athlete 
   post '/athletes' do 
     trail = Trail.find_by(id: params[:trail_id])
@@ -43,7 +24,9 @@ class ApplicationController < Sinatra::Base
   patch '/atheltes/:id' do 
     athlete = Athlete.find(params[:id])
     athlete.update(
-      time: params[:time]
+      name: params[:name],
+      time: params[:time],
+      unsupported: params[:unsupported]
     )
     athlete.to_json
   end
