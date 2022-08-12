@@ -9,7 +9,18 @@ class ApplicationController < Sinatra::Base
     trails.to_json(include: :athletes)
   end
 
-  ## Add new Athlete 
+  # Add New Trail
+  post '/trails' do
+    trail = trail.create(
+      name: params[:name],
+      location: params[:location],
+      distance: params[:distance],
+      elevation_gain: params[:elevation_gain]
+    )
+    trail.to_json
+  end
+
+  # Add New Athlete 
   post '/athletes' do 
     trail = Trail.find_by(id: params[:trail_id])
     athlete = trail.athletes.create(
@@ -20,7 +31,7 @@ class ApplicationController < Sinatra::Base
     athlete.to_json
   end
 
-  ## Update Athlete Info
+  # Update Athlete 
   patch '/athletes/:id' do 
     athlete = Athlete.find(params[:id])
     athlete.update(
@@ -31,7 +42,7 @@ class ApplicationController < Sinatra::Base
     athlete.to_json
   end
 
-  ## Delete an Athlete 
+  # Delete Athlete 
   delete '/athletes/:id' do 
     athlete = Athlete.find(params[:id])
     athlete.destroy
