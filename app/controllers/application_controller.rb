@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   # Add New Trail
   post '/trails' do
-    trail = trail.create(
+    trail = Trail.create(
       name: params[:name],
       location: params[:location],
       distance: params[:distance],
