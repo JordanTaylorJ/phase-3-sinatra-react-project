@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   ## Update Athlete Info
-  patch '/atheltes/:id' do 
+  patch '/athletes/:id' do 
     athlete = Athlete.find(params[:id])
     athlete.update(
       name: params[:name],
