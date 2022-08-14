@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_07_20_184513) do
 
   create_table "athletes", force: :cascade do |t|
     t.string "name"
-    t.integer "time"
+    t.string "time"
     t.integer "trail_id"
     t.boolean "unsupported"
     t.datetime "created_at", precision: 6, null: false

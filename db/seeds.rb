@@ -5,17 +5,17 @@ puts "🌱 Seeding spices..."
     Athlete.create(name: Faker::Name.name)
 end
 
-30.times do 
+15.times do 
     trail = Trail.create(
         name: Faker::Mountain.name,
         location: Faker::Mountain.range,
-        distance: Faker::Number.between(from: 1, to: 400),
+        distance: Faker::Number.between(from: 10, to: 1000),
         elevation_gain: Faker::Number.between(from: 0, to: 10000)
     )
-    rand(1..10).times do 
+    rand(3..10).times do 
         hiker = Athlete.create(
             name: Faker::Name.name,
-            time: Faker::Time.between(from: Time.now - 1, to: Time.now, format: :short),
+            time: "#{rand(0..60)}h #{rand(0..60)}m #{rand(0..60)}s",
             unsupported: Faker::Boolean.boolean,
             trail_id: trail.id
             )
