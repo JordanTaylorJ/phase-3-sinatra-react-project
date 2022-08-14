@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
       distance: params[:distance],
       elevation_gain: params[:elevation_gain]
     )
-    trail.to_json
+    trail.to_json(include: :athletes)
   end
 
   # Add New Athlete 
