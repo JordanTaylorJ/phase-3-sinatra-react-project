@@ -9,8 +9,8 @@ end
     trail = Trail.create(
         name: Faker::Mountain.name,
         location: Faker::Mountain.range,
-        distance: Faker::Number.between(from: 10, to: 1000),
-        elevation_gain: Faker::Number.between(from: 0, to: 10000)
+        distance: "#{Faker::Number.between(from: 10, to: 1000)}mi",
+        elevation_gain: "#{Faker::Number.between(from: 0, to: 10000)}ft"
     )
     rand(3..10).times do 
         hiker = Athlete.create(

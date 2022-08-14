@@ -3,8 +3,8 @@ class CreateTrails < ActiveRecord::Migration[6.1]
     create_table :trails do |t|
       t.string :name
       t.string :location
-      t.integer :distance
-      t.integer :elevation_gain
+      t.string :distance
+      t.string :elevation_gain
       t.timestamps
     end
   end
